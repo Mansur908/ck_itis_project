@@ -4,11 +4,12 @@
     /*margin: 1em auto;*/
 }
 
+
 .highcharts-data-table table {
     font-family: Verdana, sans-serif;
     border-collapse: collapse;
     border: 1px solid #ebebeb;
-    margin: 10px auto;
+    margin: 10px 10px;
     text-align: center;
     width: 100%;
     max-width: 500px;
@@ -48,10 +49,9 @@
 }
 
 .house-info-border{
-    margin: 3% 60%;
-    height: 450px;
-    width: 460px;
-    background-color: #ffffff;
+    margin: 3% 25%;
+    height: 350px;
+    width: 50%;
 }
 
 .info-p{
@@ -100,7 +100,7 @@
 .ramka{
     height: 140px;
     width: 100%;
-    background-color: #ffffff;
+    /*background-color: #ffffff;*/
 }
 
 .btn{
@@ -109,7 +109,7 @@
 }
 
 body{
-    background-color: #f5f9fc/* Цвет фона веб-страницы */
+    background-color: #bdda57/* Цвет фона веб-страницы */
    }
 
 .loader {

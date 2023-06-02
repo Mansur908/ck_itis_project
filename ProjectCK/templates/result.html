@@ -18,7 +18,7 @@
   </head>
 
   <body b>
-  <a href="{% url 'logout' %}">Logout</a>
+  <p align="right" style="margin: 0px 1%"><a href="{% url 'logout' %}">Logout</a></p>
   <div class="ramka">
   <form class="input-form" method="post" action="/">
       {% csrf_token %}
@@ -50,141 +50,121 @@
 </div>
 
 
+  <h1 align="center">Цена объекта: {{ my_prices.1 }} млн ₽</h1>
+
+
 {% if message %}
     <h3 style="white-space: nowrap">{{ message }}</h3>
 {% else %}
 
-<div class="galleria">
-    {% for photo in house_info.photos %}
-    <img src={{ photo }}>
-    {% endfor %}
-</div>
+{#<div class="galleria">#}
+{#    {% for photo in house_info.photos %}#}
+{#    <img src={{ photo }}>#}
+{#    {% endfor %}#}
+{#</div>#}
 
-  <script>
-      (function() {
-          Galleria.run('.galleria');
-      }());
-  </script>
+{#  <script>#}
+{#      (function() {#}
+{#          Galleria.run('.galleria');#}
+{#      }());#}
+{#  </script>#}
 
 
 
 <div class="house-info-border">
-    <h3>Информация о доме</h3>
+    <h3 align="center">Информация о доме</h3>
     <p class="info-p">Адрес</p> <p class="info-value"><b>г. Казань, {{ house_info.house_address }}</b></p>
     <p class="info-p">Год постройки</p> <p class="info-value"><b>{{ house_info.built_year }}</b></p>
     <p class="info-p">Метро</p> <p class="info-value"><b>{{ house_info.metro_name }}</b></p>
     <p class="info-p">Расстояние до метро</p> <p class="info-value"><b>{{ house_info.metro_distance }} км.</b></p>
     <p class="info-p">Район</p> <p class="info-value"><b>{{ house_info.raion_name }}</b></p>
 </div>
-
-  <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Наша оценка</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">Рыночная цена</th>
-      <td>{{ my_prices.1 }} млн ₽</td>
-    </tr>
-    <tr>
-      <th scope="row">Минимальная рыночная цена</th>
-      <td>{{ my_prices.0 }} млн ₽</td>
-    </tr>
-    <tr>
-      <th scope="row">Максимальная рыночная цена</th>
-      <td>{{ my_prices.2 }} млн ₽</td>
-    </tr>
-  </tbody>
-</table>
-
-
-
-
-  <script src="https://code.highcharts.com/highcharts.js"></script>
-  <script src="https://code.highcharts.com/modules/series-label.js"></script>
-  <script src="https://code.highcharts.com/modules/exporting.js"></script>
-  <script src="https://code.highcharts.com/modules/export-data.js"></script>
-  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-
-
-
-<figure class="highcharts-figure">
-    <div id="container"></div>
-</figure>
-
-<script type="text/javascript">
-        var data = {{ price_history|safe }}
-
-        Highcharts.chart('container', {
-            chart: {
-                type: 'line'
-            },
-
-            title: {
-                text: 'Динамика изменения цен',
-                align: 'center'
-            },
-
-            yAxis: {
-                title: {
-                    text: 'Цена'
-                }
-            },
-
-            xAxis: {
+{##}
+{#  <table class="table">#}
+{#</table>#}
+{##}
+{##}
+{#  <script src="https://code.highcharts.com/highcharts.js"></script>#}
+{#  <script src="https://code.highcharts.com/modules/series-label.js"></script>#}
+{#  <script src="https://code.highcharts.com/modules/exporting.js"></script>#}
+{#  <script src="https://code.highcharts.com/modules/export-data.js"></script>#}
+{#  <script src="https://code.highcharts.com/modules/accessibility.js"></script>#}
+{##}
+{##}
+{#<figure class="highcharts-figure">#}
+{#    <div id="container"></div>#}
+{#</figure>#}
+{##}
+{#<script type="text/javascript">#}
+{#        var data = {{ price_history|safe }}#}
+{##}
+{#        Highcharts.chart('container', {#}
+{#            chart: {#}
+{#                type: 'line'#}
+{#            },#}
+{##}
+{#            title: {#}
+{#                text: 'Динамика изменения цен',#}
+{#                align: 'center'#}
+{#            },#}
+{##}
+{#            yAxis: {#}
+{#                title: {#}
+{#                    text: 'Цена'#}
+{#                }#}
+{#            },#}
+{##}
+{#            xAxis: {#}
                     {#categories: ['2019-01-01', '2019-02-01', '2019-03-01', '2019-04-01', '2019-05-01', '2019-06-01', '2019-07-01', '2019-08-01', '2019-09-01', '2019-10-01', '2019-11-01', '2019-12-01', '2020-01-01', '2020-02-01', '2020-03-01', '2020-04-01', '2020-05-01', '2020-06-01', '2020-07-01', '2020-08-01', '2020-09-01', '2020-10-01', '2020-11-01', '2020-12-01', '2021-01-01', '2021-02-01', '2021-03-01', '2021-04-01', '2021-05-01', '2021-06-01', '2021-07-01', '2021-08-01', '2021-09-01', '2021-10-01', '2021-11-01', '2021-12-01', '2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01', '2022-06-01', '2022-07-01', '2022-08-01', '2022-09-01', '2023-01-01', '2023-02-01', '2023-03-01']#}
                     {#categories: {{ price_history.months }}#}
-                    categories: data.months
-            },
-
-            legend: {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'middle'
-            },
-
-            plotOptions: {
-                line: {
-                    dataLabels: {
-                        enabled: true
-                    },
-                    enableMouseTracking: true
-                }
-            },
-
-            series: [{
-                name: 'Город',
-                data: data.city_points
-            }, {
-                name: 'Район',
-                data: data.district_points
-            }, {
-                name: 'Дом',
-                data: data.house_points
-            }, {
-                name: 'Регион',
-                data: data.region_points
-            }],
-
-            responsive: {
-                rules: [{
-                    condition: {
-                        maxWidth: 700
-                    },
-                    chartOptions: {
-                        legend: {
-                            layout: 'horizontal',
-                            align: 'center',
-                            verticalAlign: 'bottom'
-                        }
-                    }
-                }]
-            }
-        });
-</script>
+{#                    categories: data.months#}
+{#            },#}
+{##}
+{#            legend: {#}
+{#                layout: 'vertical',#}
+{#                align: 'right',#}
+{#                verticalAlign: 'middle'#}
+{#            },#}
+{##}
+{#            plotOptions: {#}
+{#                line: {#}
+{#                    dataLabels: {#}
+{#                        enabled: true#}
+{#                    },#}
+{#                    enableMouseTracking: true#}
+{#                }#}
+{#            },#}
+{##}
+{#            series: [{#}
+{#                name: 'Город',#}
+{#                data: data.city_points#}
+{#            }, {#}
+{#                name: 'Район',#}
+{#                data: data.district_points#}
+{#            }, {#}
+{#                name: 'Дом',#}
+{#                data: data.house_points#}
+{#            }, {#}
+{#                name: 'Регион',#}
+{#                data: data.region_points#}
+{#            }],#}
+{##}
+{#            responsive: {#}
+{#                rules: [{#}
+{#                    condition: {#}
+{#                        maxWidth: 700#}
+{#                    },#}
+{#                    chartOptions: {#}
+{#                        legend: {#}
+{#                            layout: 'horizontal',#}
+{#                            align: 'center',#}
+{#                            verticalAlign: 'bottom'#}
+{#                        }#}
+{#                    }#}
+{#                }]#}
+{#            }#}
+{#        });#}
+{#</script>#}
 
 {% endif %}
   </body>

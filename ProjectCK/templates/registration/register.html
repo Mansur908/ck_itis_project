@@ -10,7 +10,7 @@
     <title>Register</title>
 </head>
 <body>
-<a style="margin: 95%" href="{% url 'login' %}">Login</a>
+<p align="right" style="margin: 0px 1%"><a href="{% url 'login' %}">Login</a></p>
 
     {% if error %}
         <p style="color: red">{{ error }}</p>
@@ -31,12 +31,6 @@
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
   </form>
-
-{#<form action="{% url 'register' %}" method="post">#}
-{#    {{ form }}#}
-{#    {% csrf_token %}#}
-{#    <button type="submit" class="btn btn-primary">Submit</button>#}
-{#</form>#}
 
 </body>
 </html>
